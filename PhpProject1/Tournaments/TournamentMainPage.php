@@ -20,6 +20,7 @@ include '../Nav.php';?>
                         <th>Name</th>
                         <th>Start Date</th>
                         <th>End Date</th>
+                        <th>Details</th>
               
                 <?php
     	
@@ -36,14 +37,16 @@ include '../Nav.php';?>
                                 echo "<tr>";
                                 echo"<td>".$item['Name']."</td>";
                                 echo "<td>".$item['startDate']."</td>";
-                                echo "<td>".$item['endDate']."</td>";
-                                
-                                echo "</tr>";
-
+                                echo "<td>".$item['endDate']."</td>";?>
+                                <td><a href=TournamentDetails.php?id=<?php echo $item['tournamentID']?>>                 
+                                <input class='btn btn-md btn-primary' type='button' value='Organization Details'>
+                                </a></td>
+                                </tr>
+            <?php
                             }
                     }
                
-    ?>
+            ?>
         </table>  
     </div>
 </div>

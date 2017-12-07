@@ -1,5 +1,6 @@
 <?php
 include '../header.php'; 
+include '../Nav.php';
     $id = $_GET['id'];
     $sql = "SELECT * FROM `Organization` where OrganizationID = '$id'";               
     $data = $conn->query($sql);
@@ -13,10 +14,8 @@ include '../header.php';
    $teams = $conn->query($sql);
 ?>   
 
-<a href="OrganizationList.php">
-    <input class="btn btn-md btn-primary" type="button" value="Edit Details">
-</a>
-<a href="OrganizationList.php">
+
+<a href="AddTeam.php?id=<?php echo $id?>">
     <input class="btn btn-md btn-primary" type="button" value="Add A Team">
 </a>
 

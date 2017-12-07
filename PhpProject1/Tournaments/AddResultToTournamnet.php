@@ -10,9 +10,8 @@ on g.GameID = t.gameID where g.GameID = '$game' order by name;";
 
 <div class="container">
 
-      <form class="form-signin">
+      <form class="form-signin" action="dbTournament.php" method="post">
         <h2 class="form-signin-heading">Add Result</h2>
-        <label for="Team" class="sr-only">Team</label>
         <select class = "form-control m-2" id ="Team" name="Team">
             <?php
             foreach($data as $item)
@@ -21,13 +20,13 @@ on g.GameID = t.gameID where g.GameID = '$game' order by name;";
                 }        
             ?>
         </select>
-        
-        <label for="Place" class="sr-only">Place</label>
-        <input type="Place" id="inputPassword" class="form-control" placeholder="Place" required>
+        <input name="place"type="text" id="inputPassword" class="form-control" placeholder="Place" required>
         <input class="btn btn-md btn-primary" type="submit" value="Add Organization">
-        <a href="OrganizationList.php">
+        <a href="TournamentMainPage.php">
             <input class="btn btn-md btn-primary" type="button" value="Cancel">
         </a>
+          <input type="hidden" name="type" value="result">
+        <input type="hidden" name="tournamentGameID" value="<?php echo $id?>"> 
       </form>
 
     </div> 

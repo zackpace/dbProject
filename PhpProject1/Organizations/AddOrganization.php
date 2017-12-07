@@ -2,16 +2,17 @@
 
 <div class="container">
 
-      <form class="form-signin">
+      <form class="form-signin"  action="dbOrg.php" method="post">
         <h2 class="form-signin-heading">Add Organization</h2>
-        <label for="Name" class="sr-only">Name</label>
-        <input type="text" id="inputEmail" class="form-control" placeholder="Name" required autofocus>
-        <label for="Founded" class="sr-only">Founded</label>
-        <input type="text" id="inputPassword" class="form-control" placeholder="Founded" required>
+       
+        <input name = "Name" type="text" id="Name" class="form-control" placeholder="Name" required autofocus>
+       <h6>Founded</h6>
+        <input name = "Founded" type="date" id="inputPassword" class="form-control" placeholder="Founded" required>
         <input class="btn btn-md btn-primary" type="submit" value="Add Organization">
         <a href="OrganizationList.php">
             <input class="btn btn-md btn-primary" type="button" value="Cancel">
         </a>
+         <input type="hidden" name="type" value="org">
       </form>
 
     </div> 

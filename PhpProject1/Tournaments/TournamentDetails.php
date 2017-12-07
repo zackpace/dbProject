@@ -5,14 +5,15 @@ include '../Nav.php';
                     
     $sql = "SELECT * FROM `Tournament` where tournamentID ='$id'";               
     $data = $conn->query($sql);
-     $sql = "SELECT tg.TournamenetGamesID as id,o.Name as winner, g.Name as game, tt.Type as type  "
-            . "FROM Zackary_Project.TournamentGames tg "
-            . "join Game g on g.GameID = tg.GameID "
-            . "join TournamentType tt on tt.TournamentTypeID = tg.TypeID "
-            . "join tournamentResults tr on tr.tournamentGameID = tg.TournamenetGamesID "
-            . "join Team t on t.teamID = tr.teamID "
-            . "join Organization o on o.OrganizationID = t.organizationID "
-            . "where  tr.place = 1 && tg.TournamentID = '$id'";               
+     $sql = "  SELECT tg.TournamenetGamesID as id,(Select o.Name from tournamentResults tr
+           join Team t on t.teamID = tr.teamID 
+           join Organization o on o.OrganizationID = t.organizationID 
+           where  tr.place = 1 && tr.tournamentGameID = id) as winner, g.Name as game, tt.Type as type  
+            FROM Zackary_Project.TournamentGames tg 
+            join Game g on g.GameID = tg.GameID 
+           join TournamentType tt on tt.TournamentTypeID = tg.TypeID
+           where tg.TournamentID = '$id'";
+                    
     $data2 = $conn->query($sql);
 foreach($data as $tourn)
     {
@@ -22,7 +23,7 @@ foreach($data as $tourn)
        
     }            
     ?>
-<a href="AddGameToTournament.php?id ="<?php echo $id?>>
+<a href="AddGameToTournament.php?id=<?php echo $id?>">
     <input class="btn btn-md btn-primary" type="button" value="Add Game">
 </a>
 

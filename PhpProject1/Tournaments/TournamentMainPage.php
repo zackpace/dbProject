@@ -39,7 +39,7 @@ include '../Nav.php';?>
                                 echo "<td>".$item['startDate']."</td>";
                                 echo "<td>".$item['endDate']."</td>";?>
                                 <td><a href=TournamentDetails.php?id=<?php echo $item['tournamentID']?>>                 
-                                <input class='btn btn-md btn-primary' type='button' value='Organization Details'>
+                                <input class='btn btn-md btn-primary' type='button' value='Tournament Details'>
                                 </a></td>
                                 </tr>
             <?php
